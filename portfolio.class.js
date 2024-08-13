@@ -1,16 +1,21 @@
+
+//Portfolio class: maneja toda la data del stock y los profits
 class Portfolio {
     constructor() {
         this.stocks = {}
     }
 
+    //addStock agrega stocks al portfolio (como no estoy usando data externa), la estructura es Stock1: { '2023-01-01': 450, '2024-01-01': 500 } fecha y precio
     addStock(stockCode, prices) {
         this.stocks[stockCode] = prices
     }
 
+    //price retorna el precio del stock en la fecha dada, si no lo encuentra retorna 0
     price(stockCode, date) {
         return this.stocks[stockCode][date] || 0
     }
 
+    // profit calcula el profit entre las fechas dadas
     profit(startDate, endDate) {
         let startValue = 0
         let endValue = 0
@@ -23,6 +28,7 @@ class Portfolio {
         return endValue - startValue;
     }
 
+    //retorna el profit de las fechas. convirtiendola a años y devolviendola como porcentaje
     annualizedReturn(startDate, endDate) {
         let profit = this.profit(startDate, endDate)
         let start = new Date(startDate)
