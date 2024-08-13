@@ -29,6 +29,7 @@ class Portfolio {
     }
 
     //retorna el profit de las fechas. convirtiendola a años y devolviendola como porcentaje
+    // Para este método si me tocó buscar en internet como sería porque no tenía ni idea realmente, mas que todo de la conversión a años entre fechas
     annualizedReturn(startDate, endDate) {
         let profit = this.profit(startDate, endDate)
         let start = new Date(startDate)
